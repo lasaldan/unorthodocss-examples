@@ -1,0 +1,254 @@
+body, html {
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+}
+
+#carousel {
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  position: relative;
+  padding: 30px 5%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#carousel-container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: left 0.3s ease-in-out;
+  transition: left 0.3s ease-in-out;
+}
+
+#carousel-slides {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: 100%;
+}
+
+#prev-buttons, #next-buttons {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 5%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  -webkit-box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0);
+          box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0);
+  -webkit-transition: background-color 0.1s ease-in-out, -webkit-box-shadow 0.1s ease-in-out;
+  transition: background-color 0.1s ease-in-out, -webkit-box-shadow 0.1s ease-in-out;
+  transition: background-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+  transition: background-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out, -webkit-box-shadow 0.1s ease-in-out;
+}
+#prev-buttons label, #next-buttons label {
+  display: none;
+  height: 100%;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-transition: background-color 0.1s ease-in-out, -webkit-box-shadow 0.1s ease-in-out;
+  transition: background-color 0.1s ease-in-out, -webkit-box-shadow 0.1s ease-in-out;
+  transition: background-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+  transition: background-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out, -webkit-box-shadow 0.1s ease-in-out;
+}
+#prev-buttons label:before, #next-buttons label:before {
+  content: "";
+  width: 50%;
+  aspect-ratio: 1/1;
+  border-top: 2px solid rgba(255, 255, 255, 0.5);
+  border-right: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 5%;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
+  -webkit-transition: opacity 0.1s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
+  opacity: 0;
+}
+#prev-buttons label:hover, #next-buttons label:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+#prev-buttons {
+  left: 0;
+  right: auto;
+}
+#prev-buttons label:before {
+  left: 70%;
+  -webkit-transform: translate(-50%, -50%) rotate(-135deg);
+          transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+#carousel:hover #prev-buttons, #carousel:hover #next-buttons {
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+#carousel:hover #prev-buttons label:before, #carousel:hover #next-buttons label:before {
+  opacity: 1 !important;
+}
+
+input[type=radio] {
+  z-index: 1;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 3%;
+  min-width: 15px;
+  max-width: 25px;
+  aspect-ratio: 1/1;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+input[type=radio]:checked {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(0, 0, 0);
+}
+input[type=radio]:checked:nth-child(1) ~ #carousel-container {
+  left: 0%;
+}
+input[type=radio]:checked:nth-child(1) ~ #next-buttons label:nth-child(1) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+input[type=radio]:checked:nth-child(1) ~ #prev-buttons label:nth-child(1) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+input[type=radio]:checked:nth-child(2) ~ #carousel-container {
+  left: -100%;
+}
+input[type=radio]:checked:nth-child(2) ~ #next-buttons label:nth-child(2) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+input[type=radio]:checked:nth-child(2) ~ #prev-buttons label:nth-child(2) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+input[type=radio]:checked:nth-child(3) ~ #carousel-container {
+  left: -200%;
+}
+input[type=radio]:checked:nth-child(3) ~ #next-buttons label:nth-child(3) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+input[type=radio]:checked:nth-child(3) ~ #prev-buttons label:nth-child(3) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+input[type=radio]:checked:nth-child(4) ~ #carousel-container {
+  left: -300%;
+}
+input[type=radio]:checked:nth-child(4) ~ #next-buttons label:nth-child(4) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+input[type=radio]:checked:nth-child(4) ~ #prev-buttons label:nth-child(4) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+input[type=radio]:checked:nth-child(5) ~ #carousel-container {
+  left: -400%;
+}
+input[type=radio]:checked:nth-child(5) ~ #next-buttons label:nth-child(5) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+input[type=radio]:checked:nth-child(5) ~ #prev-buttons label:nth-child(5) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+input[type=radio]:checked:nth-child(6) ~ #carousel-container {
+  left: -500%;
+}
+input[type=radio]:checked:nth-child(6) ~ #next-buttons label:nth-child(6) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+input[type=radio]:checked:nth-child(6) ~ #prev-buttons label:nth-child(6) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+input[type=radio]:checked:nth-child(7) ~ #carousel-container {
+  left: -600%;
+}
+input[type=radio]:checked:nth-child(7) ~ #next-buttons label:nth-child(7) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+input[type=radio]:checked:nth-child(7) ~ #prev-buttons label:nth-child(7) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+input[type=radio]:checked:nth-child(8) ~ #carousel-container {
+  left: -700%;
+}
+input[type=radio]:checked:nth-child(8) ~ #next-buttons label:nth-child(8) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+input[type=radio]:checked:nth-child(8) ~ #prev-buttons label:nth-child(8) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+input[type=radio]:checked:first-of-type ~ #prev-buttons {
+  display: none;
+}
+input[type=radio]:checked:last-of-type ~ #next-buttons {
+  display: none;
+}

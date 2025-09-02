@@ -1,0 +1,52 @@
+doctype html
+html lang="en"
+  head
+    meta charset="UTF-8"/
+    meta name="viewport" content="width=device-width, initial-scale=1.0"/
+    title Claymorph UI
+    link rel="stylesheet" href="style.css"
+
+  body
+    #wrapper.card.center-content
+      .flex.gap-larger
+        button: span Dashboard
+        button.secondary.icon: span ⚙
+
+      .card: .clay 10:28
+
+      .flex.gap
+        button.secondary: span Tue
+        button: span Apr 23
+
+      hr
+
+      input type="range" min="1" max="100" value="50" name="range-input"
+
+      label for="text-input" 
+        | First Name (Text Input)
+        input type="text" name="text-input" 
+
+      label for="bio"
+        | Bio (Textarea)
+        textarea name="bio" rows="5"
+
+      label for="age"
+        | Age (Number Input)
+        input type="number" name="age" min="0"
+
+      label for="email"
+        | Email (Email Input)
+        input type="email" name="email"
+
+      label for="password"
+        | Password (Password Input)
+        input type="password" name="password"
+
+      label for="title"
+        | Job Title (Select Box)
+        select name="title"
+          option value="developer" Developer
+          option value="designer" Designer
+          option value="manager" Manager
+
+/ inspired by: https://www.dreamstime.com/d-render-user-interface-dashboard-widget-clock-date-claymorphism-style-minimal-soft-clay-modern-ux-ui-concept-image393711811

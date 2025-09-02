@@ -1,0 +1,35 @@
+- slides = [ \
+  'https://picsum.photos/id/76/800/600', \
+  'https://picsum.photos/id/77/800/600', \
+  'https://picsum.photos/id/87/800/600', \
+  'https://picsum.photos/id/110/800/600', \
+  'https://picsum.photos/id/128/800/600', \
+  'https://picsum.photos/id/159/800/600', \
+  'https://picsum.photos/id/197/800/600', \
+  'https://picsum.photos/id/217/800/600', \
+]
+
+doctype html
+html
+  head
+    title CSS-only Carousel
+    link rel="stylesheet" href="style.css"
+
+  body
+    #carousel
+      - slides.each_with_index do |slide, index|
+        input type="radio" name="carousel" id="carousel-#{index}" checked=(index == 0)
+
+      #prev-buttons
+        - slides.each_with_index do |slide, index|
+          label for="carousel-#{index-1}"
+
+      #next-buttons
+        - slides.each_with_index do |slide, index|
+          label for="carousel-#{index+1}"
+
+      #carousel-container
+
+        #carousel-slides
+          - slides.each_with_index do |slide, index|
+            img src=slide

@@ -1,0 +1,433 @@
+html {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+#hero {
+  display: flex;
+  --day-duration: 60s;
+  --moon-duration: 480s;
+  --cycle-offset: -25s;
+  background: #020024;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  animation: sky var(--day-duration) linear infinite;
+  animation-delay: calc(var(--day-duration) * .05 + var(--cycle-offset));
+  position: relative;
+}
+
+h1 {
+  position: absolute;
+  font-size: 15vmin;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #42B671;
+  text-shadow: 2px 2px 2px rgba(0,0,0,.2), -2px -2px 2px rgba(255,255,255,.2);
+  animation: daynight var(--day-duration) linear infinite;
+  animation-delay: calc(var(--day-duration) * -.95 + var(--cycle-offset));
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h1:after {
+  content: "\2193";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -7vmin;
+  font-size: 7vmin;
+}
+
+#sky {
+  position: absolute;
+  left: 50%;
+  top: 65%;
+  width: 150vmin;
+  height: 150vmin;
+  margin-left: -75vmin;
+  margin-top: -75vmin;
+  /* background: rgb(2,0,36); */
+  animation: rotate var(--day-duration) linear infinite;
+  animation-delay: calc(var(--day-duration) / -1 + var(--cycle-offset));
+}
+
+#sky img {
+  position: absolute;
+}
+
+#stars {
+  width: 100%;
+  height: 100%;
+  animation: stars var(--day-duration) linear infinite;
+  animation-delay: calc(var(--day-duration) / -2 + var(--cycle-offset));
+}
+
+#stars img:nth-child(1) {
+  transform: rotate(30deg) scale(50%);
+  top: 5%;
+  left: 50%;
+}
+#stars img:nth-child(2) {
+  transform: rotate(35deg) scale(75%);
+  top: 10%;
+  left: 30%;
+}
+#stars img:nth-child(3) {
+  transform: rotate(30deg) scale(60%);
+  top: 20%;
+  left: 10%;
+}
+#stars img:nth-child(4) {
+  transform: rotate(40deg) scale(80%);
+  top: 25%;
+  left: 80%;
+}
+#stars img:nth-child(5) {
+  transform: rotate(44deg) scale(55%);
+  top: 30%;
+  left: 85%;
+}
+#stars img:nth-child(6) {
+  transform: rotate(24deg) scale(40%);
+  top: 40%;
+  left: 55%;
+}
+#stars img:nth-child(7) {
+  transform: rotate(42deg) scale(80%);
+  top: 30%;
+  left: 40%;
+}
+#stars img:nth-child(8) {
+  transform: rotate(14deg) scale(50%);
+  top: 40%;
+  left: 15%;
+}
+#stars img:nth-child(9) {
+  transform: rotate(14deg) scale(30%);
+  top: 15%;
+  left: 65%;
+}
+#stars img:nth-child(10) {
+  transform: rotate(14deg) scale(40%);
+  top: 65%;
+  left: 15%;
+}
+#stars img:nth-child(11) {
+  transform: rotate(16deg) scale(30%);
+  top: 75%;
+  left: 20%;
+}
+#stars img:nth-child(12) {
+  transform: rotate(64deg) scale(50%);
+  top: 85%;
+  left: 40%;
+}
+#stars img:nth-child(13) {
+  transform: rotate(61deg) scale(60%);
+  top: 70%;
+  left: 50%;
+}
+
+#moon {
+  position: absolute;
+  left: 15%;
+  top: 45%;
+  transform: scale(400%);
+  animation: rotate var(--day-duration) linear infinite;
+  transform-origin: center center;
+  animation-direction: reverse;
+  width: 100px;
+  height: 100px;
+}
+#moon img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+#moon img {
+  animation: moon infinite;
+  animation-duration: var(--moon-duration);
+  animation-timing-function: linear;
+  animation-fill-mode: backwards;
+}
+#moon img:nth-child(1) {
+  animation-delay: 0s;
+}
+#moon img:nth-child(2) {
+  animation-delay: calc(var(--moon-duration) / (-8/1) + var(--cycle-offset));
+}
+#moon img:nth-child(3) {
+  animation-delay: calc(var(--moon-duration) / (-8/2) + var(--cycle-offset));
+}
+#moon img:nth-child(4) {
+  animation-delay: calc(var(--moon-duration) / (-8/3) + var(--cycle-offset));
+}
+#moon img:nth-child(5) {
+  animation-delay: calc(var(--moon-duration) / (-8/4) + var(--cycle-offset));
+}
+#moon img:nth-child(6) {
+  animation-delay: calc(var(--moon-duration) / (-8/5) + var(--cycle-offset));
+}
+#moon img:nth-child(7) {
+  animation-delay: calc(var(--moon-duration) / (-8/6) + var(--cycle-offset));
+}
+#moon img:nth-child(8) {
+  animation-delay: calc(var(--moon-duration) / (-8/7) + var(--cycle-offset));
+}
+
+#sun {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 80%;  
+  top: 45%;
+  animation: rotate var(--day-duration) linear infinite;
+  transform-origin: center center;
+  animation-direction: reverse;
+}
+#sun img {
+  transform: scale(400%);
+}
+
+#ground {
+  position: absolute;
+  left: 0;
+  top: 70vh;
+  width: 100vw;
+  height: 30vh;
+  background: #42B671;
+  animation: daynight var(--day-duration) linear infinite;
+  animation-delay: calc(var(--day-duration) * -.95 + var(--cycle-offset));
+}
+
+#mountain img:nth-child(1) {
+  position: absolute;
+  left: 50%;
+  bottom: 80%;
+  width: 60vmin;
+  height: 60vmin;
+  transform: translateX(-110%);
+}
+
+#mountain img:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  bottom: 80%;
+  width: 60vmin;
+  height: 60vmin;
+  transform: translateX(-190%) scaleX(-1);
+}
+#mountain img:nth-child(3) {
+  position: absolute;
+  left: 50%;
+  bottom: 80%;
+  width: 60vmin;
+  height: 60vmin;
+  transform: translateX(10%);
+}
+#mountain img:nth-child(4) {
+  position: absolute;
+  left: 50%;
+  bottom: 80%;
+  width: 60vmin;
+  height: 60vmin;
+  transform: translateX(90%) scaleX(-1);
+}
+
+#house {
+  background-image: url("house.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  left: 50%;
+  bottom: 90%;
+  width: 40vmin;
+  height: 40vmin;
+  transform: translateX(-50%);
+}
+
+#trees img {
+  position: absolute;
+  left: 50%;
+}
+#trees img:nth-child(1) {
+  bottom: 110%;
+  width: 40vmin;
+  height: 40vmin;
+  transform: translateX(-210%) scaleY(1.3);
+}
+#trees img:nth-child(2) {
+  bottom: 90%;
+  width: 40vmin;
+  height: 40vmin;
+  transform: translateX(-150%) scale(.7, 1);
+}
+#trees img:nth-child(3) {
+  bottom: 90%;
+  width: 40vmin;
+  height: 40vmin;
+  transform: translateX(-190%) scaleY(1.5);
+}
+#trees img:nth-child(4) {
+  bottom: 50%;
+  width: 40vmin;
+  height: 40vmin;
+  transform: translateX(-240%) scale(1.5);
+}
+
+#trees img:nth-child(5) {
+  bottom: 80%;
+  width: 40vmin;
+  height: 40vmin;
+  transform: translateX(10%) scale(.7, 1);
+}
+
+#trees img:nth-child(6) {
+  bottom: 88%;
+  width: 40vmin;
+  height: 40vmin;
+  transform: translateX(90%) scale(.7, 1);
+}
+
+#clouds {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 30vh;
+  animation: daynight var(--day-duration) linear infinite;
+  animation-delay: calc(var(--day-duration) * -.95 + var(--cycle-offset));
+}
+#clouds img {
+  width: 30vmin;
+  height: 10vmin;
+  opacity: .8;
+}
+#clouds img:nth-child(1) {
+  position: absolute;
+  top: 3vh;
+  left: -30vmin;
+  animation: cloud 60s linear infinite;
+}
+#clouds img:nth-child(2) {
+  position: absolute;
+  top: 6vh;
+  left: -30vmin;
+  height: 20vmin;
+  animation: cloud 80s linear infinite;
+  animation-delay: -30s
+}
+#clouds img:nth-child(3) {
+  position: absolute;
+  top: 4vh;
+  left: -30vmin;
+  height: 15vmin;
+  animation: cloud 50s linear infinite;
+  animation-delay: -40s
+}
+
+@keyframes cloud {
+  0% {
+    left: -30vmin;
+  }
+  100% {
+    left: 100%;
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes daynight {
+  0% {
+    filter: brightness(0.5) contrast(0.7);
+  }
+  45% {
+    filter: brightness(0.5) contrast(0.7);
+  }
+  55% {
+    filter: brightness(1) contrast(1);
+  }
+  85% {
+    filter: brightness(1) contrast(1);
+  }
+  95% {
+    filter: brightness(0.5) contrast(0.7);
+  }
+  100% {
+    filter: brightness(0.5) contrast(0.7);
+  }
+}
+
+@keyframes sky {
+  0% {
+    background: #020024;
+  }
+  45% {
+    background: #020024;
+  }
+  50% {
+    background: #ee689b;
+  }
+  55% {
+    background: skyblue;
+  }
+  85% {
+    background: skyblue;
+  }
+  90% {
+    background: orange;
+  }
+  95% {
+    background: #020024;
+  }
+  100% {
+    background: #020024;
+  }
+}
+
+@keyframes stars {
+  0% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+  }
+  55% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes moon {
+  0% {
+    opacity: 0;
+  }
+  87% {
+    opacity: 0
+  }
+  87.5% {
+    opacity: 1;
+  }
+}
