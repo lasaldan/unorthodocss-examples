@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CSS-only Form Validation</title>
+    <link href="style.css" rel="stylesheet" />
+    <style>
+      .container {
+        width: 600px;
+      }
+      h1 {
+        border-bottom: 1px solid #bbb;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>CSS Form Validation Example</h1>
+      <form>
+        <label for="first_name">First Name
+          <input type="text" id="first_name" name="first_name" placeholder="Enter Name Here" required/>
+          <span class='hint'>We'll use this to address you</span>
+        </label>
+        <label for="email_address">Email Address
+          <input type="email" id="email_address" name="email_address" placeholder="Email" required/>
+          <span class='hint'>You will use this email address to log in</span>
+        </label>
+        <label for="password">Password
+          <input type="password" id="password" name="password" placeholder="Enter a strong pasword" required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}"/>
+          <span class='hint'>Passwords need 8 chars (with upper, lower and number)</span>
+        </label>        
+        <label for="age">Age (optional)
+          <input type="number" id="age" name="age" placeholder="What is your age?" min="13" max="120"/>
+          <span class='hint'>You must be at least 13 years old to use this service</span>
+        </label>
+        <label for="gender">Gender
+          <select name="gender" title="Select your gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+          <span class='hint'>For statistical purposes</span>
+        </label>
+
+        <input type="submit" value="Create Account" />
+        <!-- <div class="input-wrapper">
+          <label for="name">First Name
+            <input type="text" name="name" placeholder="Enter Name Here" required/>
+            <span class='requirements'>Name is required</span>
+            <span class='hint'>Enter your first name</span>
+          </label>
+        </div>
+        <div class="input-wrapper">
+          <label for="email">Email Address</label>
+          <input name="email" type="email" placeholder="Enter Email Here" required/>
+          <span class='requirements'>Please enter a valid email address</span>
+        </div>
+        <div class="input-wrapper">
+          <label for="password">Password</label>
+          <input name="password" type="password" placeholder="Enter Password Here" required="required" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}"/>
+          <span class='requirements'>Passwords need 8 chars (with upper, lower and number)</span>
+        </div>
+        <div class="input-wrapper">
+          <label for="age">Age (optional)</label>
+          <input name="age" type="number" placeholder="Enter Age Here" min="10" max="20" />
+          <span class='requirements'>Age must be between 10 and 20</span>
+        </div>
+        <div class="input-wrapper">
+          <label for="gender">Gender</label>
+          <br>
+          <div class="select-dropdown">
+            <select name="gender" title="Select your gender" required>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+        </div>
+        <div class="input-wrapper">
+          <label for="message">Message</label>
+          <textarea name="message" placeholder="Message" required></textarea>
+        </div>
+        <div class="input-wrapper">
+          <label>When should this send?</label><br>
+          <input type="radio" name="when" value="now" id="now" />
+          <label for="now">Now</label>
+          <input type="radio" name="when" value="later" id="later" />
+          <label for="later">Later</label>
+        </div>
+        <div class="input-wrapper">
+          <label>Who should this send to?</label><br>
+          <input type="checkbox" name="who" value="boys" id="boys" />
+          <label for="boys">Boys</label>
+          <input type="checkbox" name="who" value="girls" id="girls" />
+          <label for="girls">Girls</label>
+        </div>
+        <div class="input-wrapper">
+          <input type="submit" value="Send Message"/>
+        </div> -->
+      </form>
+    </div>
+  </body>
+</html>

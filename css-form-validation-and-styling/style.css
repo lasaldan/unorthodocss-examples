@@ -1,0 +1,188 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+label {
+  display: block;
+  position: relative;
+  font-size: .9em;
+  font-weight: 600;
+  width: min-content;
+
+  & + label {
+    margin-top: 20px;
+  }
+
+  input, select {
+    display: block;
+    box-sizing: border-box;
+    min-width: 220px;
+    border-radius: 5px;
+    outline: none;
+    padding: 10px 15px;
+    margin-top: 3px;
+  }
+
+  input:not([type=submit]), select {
+    border: 1px solid lightgray;
+    border-left: 5px solid lightgray;
+  }
+
+  select {
+    border-color: rgb(118, 189, 118);
+    border-left: 5px solid rgb(118, 189, 118);
+  }
+
+  input:not([type=submit])[type=text]:placeholder-shown,
+  input:not([type=submit])[type=password]:placeholder-shown,
+  input:not([type=submit])[type=number]:placeholder-shown,
+  input:not([type=submit])[type=select]:placeholder-shown,
+  input:not([type=submit])[type=email]:placeholder-shown {
+    border-color: lightgray;
+  }
+
+  input:not([type=submit])[type=text]:focus,
+  input:not([type=submit])[type=email]:focus,
+  input:not([type=submit])[type=password]:focus,
+  input:not([type=submit])[type=number]:focus,
+  input:not([type=submit])[type=select]:focus {
+    border-color: lightskyblue;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
+  }
+
+  input:not([type=submit]):invalid:not(:placeholder-shown) {
+    border-color: #EFADB5;
+  }
+
+  input:not([type=submit]):valid:not(:placeholder-shown) {
+    border-color: rgb(118, 189, 118);
+    border-left: 5px solid rgb(118, 189, 118);
+  }
+
+  input[required] {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="lightgrey" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="17" y1="7" x2="7" y2="17"></line><line x1="7" y1="7" x2="17" y2="17"></line><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>');
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+    background-size: 20px;
+  }
+
+  .hint {
+    display: block;
+    opacity: 0;
+    font-size: 0.9em;
+    font-style: italic;
+    color: #666;
+    position: absolute;
+    left: 110%;
+    width: max-content;
+    bottom: 10px;
+    transition: opacity 0.2s ease-in-out, left 0.2s ease-in-out;
+  }
+
+  input:focus + .hint,
+  select:focus + .hint {
+    opacity: 1;
+    left: 105%;
+  }
+
+  input:invalid:focus:not(:placeholder-shown) ~ .requirements {
+    max-height: 150px;
+    padding: 0 0 0px 10px;
+  }
+  .requirements {
+    color: red;
+    font-size: 80%;
+    font-style: italic;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 0 0 10px;
+    position: absolute;
+    -ms-transition: .28s;
+    -webkit-transition: .28s;
+    bottom: -0px;
+    transition: .28s;
+  }
+}
+input[type=submit] {
+  background: #4A90E2;
+  color: white;
+  margin-top: 20px;
+  border: none;
+  cursor: pointer;
+  display: block;
+  box-sizing: border-box;
+  min-width: 220px;
+  border-radius: 5px;
+  outline: none;
+  padding: 10px 15px;
+
+  &:hover {
+    background: #357ABD;
+  }
+}
+/* 
+form input[type=text]:valid:not(:placeholder-shown),
+form input[type=email]:valid:not(:placeholder-shown),
+form input[type=password]:valid:not(:placeholder-shown),
+form input[type=number]:valid:not(:placeholder-shown),
+form textarea:valid:not(:placeholder-shown) {
+  border-color: rgb(118, 189, 118);
+  border-left: 5px solid rgb(118, 189, 118);
+}
+form input,
+form textarea,
+form select,
+form input[type=checkbox] + label,
+form input[type=radio] + label {
+  border: 1px solid lightgrey;
+  border-left: 5px solid lightgrey;
+  border-radius: 5px;
+  outline: none;
+  padding: 10px 15px;
+}
+form select {
+  border-color: rgb(118, 189, 118);
+  border-left: 5px solid rgb(118, 189, 118);
+}
+form input:required,
+form textarea:required {
+  border-left: 5px solid #EFADB5;
+}
+form input:focus,
+form textarea:focus,
+form select:focus {
+  border-color: lightskyblue;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.1);
+}
+
+
+form input:invalid:not(:focus):not(:placeholder-shown),
+form input:invalid:focus:not(:placeholder-shown) {
+    border-color: #EFADB5;
+}
+form input:invalid:focus:not(:placeholder-shown) ~ .requirements {
+  max-height: 150px;
+  padding: 0 0 0px 10px;
+}
+form .requirements {
+  color: red;
+  font-size: 80%;
+  font-style: italic;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 0 0 10px;
+  position: absolute;
+  -ms-transition: .28s;
+  -webkit-transition: .28s;
+  bottom: -0px;
+  transition: .28s;
+}
+.input-wrapper {
+  position: relative;
+  padding-bottom: 20px;
+} */
