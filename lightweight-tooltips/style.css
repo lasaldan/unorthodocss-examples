@@ -1,0 +1,304 @@
+:root {
+  /* Tooltip timing */
+  --tooltip-fade-out-duration: 500ms;
+  --tooltip-fade-in-duration: 500ms;
+
+  /* Tooltip dimensions */
+  --tooltip-width: 200px;
+  --tooltip-width: max-content;
+  --tooltip-padding: 10px 15px;
+  --tooltip-arrow-height: 6px;
+  --tooltip-distance-from-trigger: 5px;
+  --tooltip-border-radius: 3px;
+
+  /* Tooltip colors */
+  --tooltip-background-color: #333;
+  --tooltip-color: #fff;
+
+  /* Help icon styling */
+  --tooltip-help-icon-font-size: 12px;
+  --tooltip-help-icon-border: 1px solid #3a859a;
+  --tooltip-icon-border-radius: 500px;
+  --tooltip-help-icon-size: 2em;
+  --tooltip-help-icon-color: #3a859a;
+  --tooltip-help-icon-background-color: #c4e4ec;
+}
+
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 100px;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+/* Tooltip base styles */
+[data-tooltip-text] {
+  position: relative;
+}
+
+[data-tooltip-text]:before,
+[data-tooltip-text]:after {
+  opacity: 0;
+  z-index: 100;
+  transition: opacity var(--tooltip-fade-out-duration), visibility 0ms linear var(--tooltip-fade-out-duration);
+  pointer-events: none;
+}
+
+[data-tooltip-text]:before {
+  content: attr(data-tooltip-text);
+  font-family: system-ui, sans-serif;
+  position: absolute;
+  width: var(--tooltip-width);
+  padding: var(--tooltip-padding);
+  line-height: 18px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: normal;
+  white-space: normal;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: var(--tooltip-border-radius);
+  background-color: var(--tooltip-background-color);
+  color: var(--tooltip-color);
+  top: calc(-1 * (var(--tooltip-distance-from-trigger) + var(--tooltip-arrow-height)));
+  bottom: auto;
+  left: 50%;
+  right: auto;
+  transform: translate3d(-50%, -100%, 0);
+}
+
+[data-tooltip-text]:after {
+  content: '';
+  color: var(--tooltip-background-color);
+  display: block;
+  position: absolute;
+  height: 0;
+  width: 0;
+  transform: translate3d(-50%, 0, 0);
+  border-top: var(--tooltip-arrow-height) solid var(--tooltip-background-color);
+  border-left: var(--tooltip-arrow-height) solid transparent;
+  border-right: var(--tooltip-arrow-height) solid transparent;
+  border-bottom: none;
+  top: calc(-1 * (var(--tooltip-distance-from-trigger) + var(--tooltip-arrow-height)));
+  bottom: auto;
+  left: 50%;
+  right: auto;
+}
+
+
+/* Hover state */
+
+[data-tooltip-text]:hover:before,
+[data-tooltip-text]:hover:after {
+  opacity: 1;
+  pointer-events: all;
+  transition-delay: var(--tooltip-fade-in-duration);
+}
+
+
+/* Northeast position */
+
+[data-tooltip-position='ne']:before {
+  top: calc(-1 * (var(--tooltip-distance-from-trigger) + var(--tooltip-arrow-height)));
+  bottom: auto;
+  left: 0;
+  right: auto;
+  transform: translate3d(0, -100%, 0);
+}
+
+[data-tooltip-position='ne']:after {
+  transform: translate3d(-50%, 0, 0);
+  border-top: var(--tooltip-arrow-height) solid var(--tooltip-background-color);
+  border-left: var(--tooltip-arrow-height) solid transparent;
+  border-right: var(--tooltip-arrow-height) solid transparent;
+  top: calc(-1 * (var(--tooltip-distance-from-trigger) + var(--tooltip-arrow-height)));
+  bottom: auto;
+  left: 50%;
+  right: auto;
+}
+
+
+/* North position */
+
+[data-tooltip-position='n']:before {
+  top: calc(-1 * (var(--tooltip-distance-from-trigger) + var(--tooltip-arrow-height)));
+  bottom: auto;
+  left: 50%;
+  right: auto;
+  transform: translate3d(-50%, -100%, 0);
+}
+
+[data-tooltip-position='n']:after {
+  transform: translate3d(-50%, 0, 0);
+  border-top: var(--tooltip-arrow-height) solid var(--tooltip-background-color);
+  border-left: var(--tooltip-arrow-height) solid transparent;
+  border-right: var(--tooltip-arrow-height) solid transparent;
+  border-bottom: none;
+  top: calc(-1 * (var(--tooltip-distance-from-trigger) + var(--tooltip-arrow-height)));
+  bottom: auto;
+  left: 50%;
+  right: auto;
+}
+
+
+/* Northwest position */
+
+[data-tooltip-position='nw']:before {
+  top: calc(-1 * (var(--tooltip-distance-from-trigger) + var(--tooltip-arrow-height)));
+  bottom: auto;
+  right: 0;
+  left: auto;
+  transform: translate3d(0, -100%, 0);
+}
+
+[data-tooltip-position='nw']:after {
+  transform: translate3d(50%, 0, 0);
+  border-top: var(--tooltip-arrow-height) solid var(--tooltip-background-color);
+  border-left: var(--tooltip-arrow-height) solid transparent;
+  border-right: var(--tooltip-arrow-height) solid transparent;
+  border-bottom: none;
+  top: calc(-1 * (var(--tooltip-distance-from-trigger) + var(--tooltip-arrow-height)));
+  bottom: auto;
+  right: 50%;
+  left: auto;
+}
+
+
+/* West position */
+
+[data-tooltip-position='w']:before {
+  top: 50%;
+  bottom: auto;
+  left: calc(-1 * (var(--tooltip-distance-from-trigger) + var(--tooltip-arrow-height)));
+  right: auto;
+  transform: translate3d(-100%, -50%, 0);
+}
+
+[data-tooltip-position='w']:after {
+  transform: translate3d(-100%, -50%, 0);
+  border-top: var(--tooltip-arrow-height) solid transparent;
+  border-bottom: var(--tooltip-arrow-height) solid transparent;
+  border-left: var(--tooltip-arrow-height) solid var(--tooltip-background-color);
+  border-right: none;
+  top: 50%;
+  bottom: auto;
+  left: -5px;
+  right: auto;
+}
+
+
+/* East position */
+
+[data-tooltip-position='e']:before {
+  top: 50%;
+  bottom: auto;
+  right: calc(-1 * (var(--tooltip-distance-from-trigger) + var(--tooltip-arrow-height)));
+  left: auto;
+  transform: translate3d(100%, -50%, 0);
+}
+
+[data-tooltip-position='e']:after {
+  transform: translate3d(100%, -50%, 0);
+  border-top: var(--tooltip-arrow-height) solid transparent;
+  border-bottom: var(--tooltip-arrow-height) solid transparent;
+  border-right: var(--tooltip-arrow-height) solid var(--tooltip-background-color);
+  border-left: none;
+  top: 50%;
+  bottom: auto;
+  right: -5px;
+  left: auto;
+}
+
+
+/* South position */
+
+[data-tooltip-position='s']:before {
+  bottom: calc(-1 * (var(--tooltip-distance-from-trigger) + var(--tooltip-arrow-height)));
+  top: auto;
+  left: 50%;
+  right: auto;
+  transform: translate3d(-50%, 100%, 0);
+}
+
+[data-tooltip-position='s']:after {
+  transform: translate3d(-50%, 0, 0);
+  border-bottom: var(--tooltip-arrow-height) solid var(--tooltip-background-color);
+  border-left: var(--tooltip-arrow-height) solid transparent;
+  border-right: var(--tooltip-arrow-height) solid transparent;
+  border-top: none;
+  bottom: calc(-1 * (var(--tooltip-distance-from-trigger) + var(--tooltip-arrow-height)));
+  top: auto;
+  left: 50%;
+  right: auto;
+}
+
+
+/* Southwest position */
+
+[data-tooltip-position='sw']:before {
+  bottom: calc(-1 * (var(--tooltip-distance-from-trigger) + var(--tooltip-arrow-height)));
+  top: auto;
+  right: 0;
+  left: auto;
+  transform: translate3d(0, 100%, 0);
+}
+
+[data-tooltip-position='sw']:after {
+  transform: translate3d(50%, 0, 0);
+  border-bottom: var(--tooltip-arrow-height) solid var(--tooltip-background-color);
+  border-left: var(--tooltip-arrow-height) solid transparent;
+  border-right: var(--tooltip-arrow-height) solid transparent;
+  border-top: none;
+  bottom: calc(-1 * (var(--tooltip-distance-from-trigger) + var(--tooltip-arrow-height)));
+  top: auto;
+  right: 50%;
+  left: auto;
+}
+
+
+/* Southeast position */
+
+[data-tooltip-position='se']:before {
+  bottom: calc(-1 * (var(--tooltip-distance-from-trigger) + var(--tooltip-arrow-height)));
+  top: auto;
+  left: 0;
+  right: auto;
+  transform: translate3d(0, 100%, 0);
+}
+
+[data-tooltip-position='se']:after {
+  transform: translate3d(-50%, 0, 0);
+  border-bottom: var(--tooltip-arrow-height) solid var(--tooltip-background-color);
+  border-left: var(--tooltip-arrow-height) solid transparent;
+  border-right: var(--tooltip-arrow-height) solid transparent;
+  border-top: none;
+  bottom: calc(-1 * (var(--tooltip-distance-from-trigger) + var(--tooltip-arrow-height)));
+  top: auto;
+  left: 50%;
+  right: auto;
+}
+
+
+/* Help icon styles */
+
+.help-icon {
+  font-size: var(--tooltip-help-icon-font-size);
+  border: var(--tooltip-help-icon-border);
+  border-radius: var(--tooltip-icon-border-radius);
+  display: flex;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  width: var(--tooltip-help-icon-size);
+  height: var(--tooltip-help-icon-size);
+  color: var(--tooltip-help-icon-color);
+  background-color: var(--tooltip-help-icon-background-color);
+  font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
+  font-weight: normal;
+  cursor: pointer;
+}
