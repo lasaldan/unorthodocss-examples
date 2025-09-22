@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe: CSS only, no Javascript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h2>Tic-Tac-T⊗e</h2>
+  <form>
+    <input type="checkbox" data-cell="x0" id="x0"/>
+    <input type="checkbox" data-cell="x1" id="x1"/>
+    <input type="checkbox" data-cell="x2" id="x2"/>
+    <input type="checkbox" data-cell="x3" id="x3"/>
+    <input type="checkbox" data-cell="x4" id="x4"/>
+    <input type="checkbox" data-cell="x5" id="x5"/>
+    <input type="checkbox" data-cell="x6" id="x6"/>
+    <input type="checkbox" data-cell="x7" id="x7"/>
+    <input type="checkbox" data-cell="x8" id="x8"/>
+
+    <input type="checkbox" data-cell="o0" id="o0"/>
+    <input type="checkbox" data-cell="o1" id="o1"/>
+    <input type="checkbox" data-cell="o2" id="o2"/>
+    <input type="checkbox" data-cell="o3" id="o3"/>
+    <input type="checkbox" data-cell="o4" id="o4"/>
+    <input type="checkbox" data-cell="o5" id="o5"/>
+    <input type="checkbox" data-cell="o6" id="o6"/>
+    <input type="checkbox" data-cell="o7" id="o7"/>
+    <input type="checkbox" data-cell="o8" id="o8"/>
+
+    <div class="board">
+      <div class="cell"><label for="o0">?</label><label for="x0">?</label></div>
+      <div class="cell"><label for="o1">?</label><label for="x1">?</label></div>  
+      <div class="cell"><label for="o2">?</label><label for="x2">?</label></div>
+
+      <div class="cell"><label for="o3">?</label><label for="x3">?</label></div>
+      <div class="cell"><label for="o4">?</label><label for="x4">?</label></div>
+      <div class="cell"><label for="o5">?</label><label for="x5">?</label></div>
+
+      <div class="cell"><label for="o6">?</label><label for="x6">?</label></div>
+      <div class="cell"><label for="o7">?</label><label for="x7">?</label></div>
+      <div class="cell"><label for="o8">?</label><label for="x8">?</label></div>
+    </div>
+
+    <div class="x-turn-message">X's turn</div>
+    <div class="o-turn-message">O's turn</div>
+    <div class="x-win-message">X wins! <button type="reset">Play Again</button></div>
+    <div class="o-win-message">O wins! <button type="reset">Play Again</button></div>
+    <div class="draw-message">Draw! <button type="reset">Play Again</button></div>
+  </form>
+</body> 
+</html>
